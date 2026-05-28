@@ -1,0 +1,60 @@
+.order-popup {
+  position: fixed;
+  top: 0;
+  z-index: 1000000000000000000;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  width: 500px;
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.closeBtn1 {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  border: none;
+  color:  #ff9800;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 2em;
+  background-color: white;
+}
+
+.success-title {
+  color: green;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.total {
+  margin-top: 10px;
+  color: #16a34a;
+}

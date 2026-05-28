@@ -1,0 +1,53 @@
+
+/* TEXT */
+.text {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* BALL CONTAINER */
+.balls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  /* z-index: 1; */
+}
+
+/* EACH BALL */
+.ball {
+  width: 250px;
+  height: 250px;
+  background-color: lightskyblue;
+  color: midnightblue;
+  font-weight: 800;
+  border-radius: 50%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: bounce 1s infinite alternate;
+}
+.ball p{
+  font-size: 15px;
+  
+}
+/* DELAY FOR EACH BALL */
+.ball:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.ball:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* BOUNCE ANIMATION */
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100px);
+  }
+}

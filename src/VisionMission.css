@@ -1,0 +1,53 @@
+/* VisionMission.css */
+
+.vm-section {
+  padding: 60px 20px;
+  
+  text-align: center;
+}
+
+.vm-title {
+  font-size: clamp(28px, 5vw, 42px);
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.vm-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.vm-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.vm-card:hover {
+  transform: translateY(-8px);
+}
+
+.vm-card h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ff6600;
+}
+
+.vm-card p {
+  color: #555;
+  line-height: 1.7;
+}
+
+.vm-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.vm-card li {
+  margin: 10px 0;
+  color: #444;
+  font-weight: 500;
+}

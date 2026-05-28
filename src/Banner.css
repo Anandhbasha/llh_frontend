@@ -1,0 +1,318 @@
+/* =========================
+   COMMON BANNER STYLES
+========================= */
+
+.banner,
+.banner1,
+.banner3,
+.banner4 {
+  width: 100%;
+
+  height: 500px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 40px;
+
+  padding: 50px;
+
+  overflow: hidden;
+
+  margin-top: 30px;
+
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   BANNER 1
+========================= */
+
+.banner1 {
+  background:
+    linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(30, 41, 59, 0.85)),
+    url("./assets/Image/org.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   BANNER 2
+========================= */
+
+.banner {
+  background: url("./assets/Image/bac.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   BANNER 3
+========================= */
+
+.banner3,
+.banner4 {
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(30, 41, 59, 0.88)),
+    url("./assets/image/back.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.bannerContent,
+.content {
+  flex: 1;
+
+  color: white;
+
+  z-index: 2;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.bannerTitle,
+.content h1 {
+  font-size: 2.5rem;
+
+  margin-bottom: 18px;
+
+  line-height: 1.2;
+
+  font-weight: bold;
+
+  background: linear-gradient(to right, #f97316, #fb7185);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   SUB TITLE
+========================= */
+
+.bannerSubTitle,
+.content h2 {
+  font-size: 1rem;
+
+  color: #f1f5f9;
+
+  margin-bottom: 18px;
+
+  line-height: 1.5;
+}
+
+/* =========================
+   PARAGRAPH
+========================= */
+
+.bannerText,
+.content p {
+  font-size: 1rem;
+
+  color: #cbd5e1;
+
+  line-height: 1.8;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.bannerBtn {
+  margin-top: 25px;
+
+  background: linear-gradient(to right, #f97316, #ea580c);
+
+  color: white;
+
+  border: none;
+
+  padding: 13px 28px;
+
+  border-radius: 40px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.bannerBtn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.bannerImage,
+.banner-image {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================
+   IMAGES
+========================= */
+
+.bannerImage img,
+.banner-image img {
+  width: 220px;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  transition: 0.3s;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.bannerImage img:hover,
+.banner-image img:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   SPECIAL IMAGE SIZES
+========================= */
+
+.banner .bannerImage img {
+  width: 380px;
+
+  height: 280px;
+  background-color: #;
+}
+
+.banner3 .banner-image img {
+  width: 260px;
+
+  height: 260px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media screen and (max-width: 992px) {
+  .banner,
+  .banner1,
+  .banner3 {
+    height: 650px;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 40px 25px;
+  }
+
+  .bannerTitle,
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .bannerSubTitle,
+  .content h2 {
+    font-size: 1.1rem;
+  }
+
+  .content {
+    padding-left: 0 !important;
+  }
+
+  .banner .bannerImage img {
+    width: 320px;
+
+    height: 240px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 600px) {
+  .banner,
+  .banner1,
+  .banner3 {
+    height: auto;
+
+    min-height: 400px;
+
+    padding: 25px 15px;
+
+    gap: 20px;
+  }
+
+  .bannerTitle,
+  .content h1 {
+    font-size: 1.6rem;
+  }
+
+  .bannerSubTitle,
+  .content h2 {
+    font-size: 1rem;
+  }
+
+  .bannerText,
+  .content p {
+    font-size: 0.92rem;
+
+    line-height: 1.6;
+  }
+
+  .bannerImage,
+  .banner-image {
+    gap: 15px;
+  }
+
+  .bannerImage img,
+  .banner-image img {
+    width: 120px;
+
+    height: 120px;
+  }
+
+  .banner .bannerImage img {
+    width: 100%;
+
+    max-width: 280px;
+
+    height: auto;
+  }
+
+  .banner3 .banner-image img {
+    width: 180px;
+
+    height: 180px;
+  }
+}

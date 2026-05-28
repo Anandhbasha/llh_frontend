@@ -1,0 +1,54 @@
+.payment-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+}
+
+.payment-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 350px;
+}
+
+.payment-card h2 {
+  margin-bottom: 20px;
+}
+
+.payment-card button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.cod {
+  background: #16ba9c;
+  color: white;
+}
+
+.upi {
+  background: #ff9800;
+  color: white;
+}
+
+.payment-card button:hover {
+  transform: scale(1.03);
+}
+
+.popup {
+  position: fixed;
+  bottom: 20px;
+  background: black;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+}

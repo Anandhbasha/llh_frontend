@@ -1,0 +1,391 @@
+.customer-page{
+  min-height: 100vh;
+  background: linear-gradient(135deg,#f8fafc,#e0f2fe);
+  padding: 120px 40px 40px;
+  display: flex;
+  gap: 30px;
+  color: #0f172a;
+}
+
+.checkout-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fb;
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.checkout-form {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  border-color: #16ba9c;
+  box-shadow: 0 0 5px rgba(22,186,156,0.3);
+}
+
+.checkout-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.checkout-form button {
+  padding: 12px;
+  background: #16ba9c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkout-form button:hover {
+  background: #129b84;
+}
+.payment-box {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pay-btn:disabled {
+  background: #cbd5e1 !important;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  border: 1px solid #e5e7eb;
+}
+
+/* HOVER */
+.radio-label:hover {
+  background: #f1f5f9;
+}
+
+/* SELECTED STYLE */
+.radio-label input:checked + span {
+  color: #16a34a;
+}
+
+/* BETTER LOOK FOR RADIO */
+.radio-label input {
+  accent-color: #16a34a;
+}
+
+/* BUTTON BASE */
+.pay-btn {
+  margin-top: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* COD STYLE */
+.pay-btn.COD {
+  background: #16a34a;
+}
+
+/* ONLINE STYLE */
+.pay-btn.ONLINE {
+  background: #2563eb;
+}
+
+.pay-btn:hover {
+  opacity: 0.9;
+}
+/* LEFT SIDE */
+.billing-section{
+  flex: 2;
+}
+
+.checkout-header{
+  margin-bottom: 25px;
+}
+
+.input-grid > input{
+  color: #0f172a;
+}
+
+
+.success-popup{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #16BA9C;
+    color: white;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    z-index: 99999;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: popupSlide 0.5s ease;
+}
+
+@keyframes popupSlide{
+
+    from{
+        opacity: 0;
+        transform: translateX(120px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+}
+
+.checkout-header h1{
+  font-size: 45px;
+  color: #7c3aed;
+  margin-bottom: 10px;
+}
+
+.checkout-header h2{
+  color: #16a34a;
+  font-size: 32px;
+}
+
+.billing-card{
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.billing-card h2{
+  margin-bottom: 25px;
+  color: #ea580c;
+  font-size: 32px;
+}
+
+/* INPUT GRID */
+.input-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.input-grid input{
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  font-size: 17px;
+  transition: 0.3s;
+  background: #f8fafc;
+}
+
+.input-grid input:focus{
+  border-color: #7c3aed;
+  box-shadow: 0 0 10px rgba(124,58,237,0.2);
+}
+
+/* BUTTON */
+.place-order-btn{
+  margin-top: 30px;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(to right,#22c55e,#16a34a);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.place-order-btn:hover{
+  transform: scale(1.01);
+}
+
+/* RIGHT SIDE */
+.cart-summary{
+  flex: 1;
+  background: white;
+  padding: 25px;
+  border-radius: 25px;
+  height: fit-content;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 110px;
+}
+
+.cart-summary h2{
+  color: #7c3aed;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.summary-card{
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 18px;
+  align-items: center;
+}
+
+.summary-card img{
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.summary-card h3{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.summary-card p{
+  margin-bottom: 8px;
+  color: #64748b;
+}
+
+.summary-card h4{
+  color: #16a34a;
+  font-size: 22px;
+}
+
+/* GRAND TOTAL */
+.grand-total{
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed #cbd5e1;
+  text-align: center;
+}
+
+.grand-total h2{
+  color: #ea580c;
+}
+
+.grand-total h1{
+  font-size: 42px;
+  color: #16a34a;
+}
+
+/* TABLET */
+@media(max-width:900px){
+
+  .customer-page{
+    flex-direction: column;
+    padding: 110px 20px 30px;
+  }
+
+  .input-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .cart-summary{
+    position: static;
+  }
+
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  .customer-page{
+    padding: 100px 12px 20px;
+  }
+
+  .checkout-header h1{
+    font-size: 34px;
+  }
+
+  .checkout-header h2{
+    font-size: 24px;
+  }
+
+  .billing-card{
+    padding: 18px;
+  }
+
+  .billing-card h2{
+    font-size: 26px;
+  }
+
+  .input-grid input{
+    padding: 13px;
+    font-size: 15px;
+  }
+
+  .place-order-btn{
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .cart-summary{
+    padding: 18px;
+  }
+
+  .summary-card{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .summary-card img{
+    width: 100px;
+    height: 130px;
+  }
+
+  .grand-total h1{
+    font-size: 32px;
+  }
+
+}
