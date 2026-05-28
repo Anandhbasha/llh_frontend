@@ -2,7 +2,7 @@ import { GoMail } from "react-icons/go";
 import { FaPhone, FaWhatsapp } from "react-icons/fa6";
 import { IoLocationOutline, IoTimeOutline } from "react-icons/io5";
 
-import lakshmi from "../../assets/image/lakshmi.jpg";
+import lakshmi from "../../../src/assets/Image/lakshmi.jpg";
 import "./Footer.css";
 import ScrollTopButton from "../ScrollTopButton";
 
