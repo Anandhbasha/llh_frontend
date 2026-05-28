@@ -96,7 +96,7 @@ console.log(products);
       <section className="mt-5">
         <h2 className="text-center mb-4">Our Products</h2>
 
-        <div className="row">
+        <div className="row" style={{justifyContent:"center"}}>
           {products.slice(0, 6).map((item) => (
               <Card {...item} />
 ))}
