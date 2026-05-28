@@ -13,6 +13,18 @@ body{
 }
 
 /* NAVBAR CONTAINER */
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(3px);
+  z-index: 998;
+}
+
+.bottomNavbar{
+  position: fixed;
+  z-index: 999;
+}
 
 .navbarContainer{
     width: 100%;

@@ -6,7 +6,7 @@ import {
   increaseQty,
   decreaseQty,
   removeFromCart,
-} from "../Slices.js/CartSlice";
+} from "../slices/CartSlice";
 
 import "../Cartsidebar.css";
 

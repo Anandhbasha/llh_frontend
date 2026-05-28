@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./OrderSummary.css";
 import { useDispatch } from "react-redux";
-import { clearCart } from "../../Slices.js/CartSlice";
+import { clearCart } from "../../slices/CartSlice";
 
 const OrderSummary = () => {
   const { state } = useLocation();

@@ -58,7 +58,7 @@ const CustomerDetails = () => {
   /* ---------------- COD ORDER ---------------- */
   const handleCODOrder = async () => {
     try {
-      const res = await fetch("http://localhost:5000/send-order", {
+      const res = await fetch("https://llh-backend.onrender.com/send-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -102,7 +102,7 @@ const CustomerDetails = () => {
 /* ---------------- RAZORPAY ---------------- */
   const handleRazorpay = async () => {
     try {
-      const res = await fetch("http://localhost:5000/create-order", {
+      const res = await fetch("https://llh-backend.onrender.com/create-order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: total }),
@@ -123,7 +123,7 @@ const CustomerDetails = () => {
         handler: async function (response) {
           try {
             // Once transaction succeeds, trigger your backend email system
-            const mailRes = await fetch("http://localhost:5000/send-order", {
+            const mailRes = await fetch("https://llh-backend.onrender.com/send-order", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

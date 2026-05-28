@@ -7,7 +7,7 @@ const AcademicBooks= () => {
     const [products, setProducts] = useState([]);
   useEffect(() => {
   axios
-    .get("http://localhost:5000/products")
+    .get(`${import.meta.env.VITE_API_URL}/products`)
 
     .then((res) => {
 
@@ -22,8 +22,9 @@ const AcademicBooks= () => {
     });
 
 }, []);
-    const Digi=products.filter((item)=>item.Category==="Academic Books")
-    console.log(Digi);
+    const Digi = Array.isArray(products)
+  ? products.filter((item) => item.Category === "Academic Books")
+  : [];
     
  return (
     <div className='AcademicBooks'style={{paddingTop:"80px",display:"flex"}}>

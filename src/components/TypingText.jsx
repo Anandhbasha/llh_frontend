@@ -1,4 +1,4 @@
-import digi from "../../Backend/public/images/dsc.png";
+import digi from "../../src/assets/Image/dsc.png";
 import React, { useEffect, useRef, useState } from "react";
 
 const TypingText = () => {

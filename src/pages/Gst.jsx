@@ -7,7 +7,7 @@ const Gst = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://llh-backend.onrender.com/products")
 
       .then((res) => {
         setProducts(res.data);

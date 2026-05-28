@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addtoCart } from "../Slices.js/CartSlice";
+import { addtoCart } from "../slices/CartSlice";
 import { useNavigate } from "react-router";
 
 const Card = ({
@@ -33,7 +33,7 @@ const Card = ({
   // ✅ SAFE IMAGE HANDLING
   const imageSrc = Image?.startsWith("http")
     ? Image
-    : `http://localhost:5000${Image}`;
+    : `https://llh-backend.onrender.com/${Image}`;
 
   // BOOK DISCOUNT
   const discountPrice = Math.round(Price - (Price * 15) / 100);
@@ -68,9 +68,10 @@ const Card = ({
         {/* SOFTWARE */}
         {type === "software" && (
           <div>
-            <span>₹{Price}</span><br></br>
-            <span style={{ color: "orangered", fontWeight: "bold" }}>
-              Gst₹{gstPrice}
+            <span>₹{Price}</span><br></br><br></br>
+            <small>With</small>
+            <span style={{ color: "orangered", fontWeight: "bold" ,padding:"10px"}}>
+               Gst₹{gstPrice}
             </span>
           </div>
         )}

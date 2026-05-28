@@ -6,12 +6,13 @@ const Xbrl= () => {
 const [products, setProducts] = useState([]);
   useEffect(() => {
   axios
-    .get("http://localhost:5000/products")
+    .get("https://llh-backend.onrender.com/products")
 
     .then((res) => {
 
       setProducts(res.data);
-
+     
+      
     })
 
     .catch((err) => {
@@ -19,6 +20,7 @@ const [products, setProducts] = useState([]);
       console.log(err);
 
     });
+     console.log(products);
 
 }, []);
     const sensys=products.filter((item)=>item.Category==="Xbrl software")

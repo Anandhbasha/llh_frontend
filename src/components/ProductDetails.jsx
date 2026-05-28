@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addtoCart } from "../Slices.js/CartSlice";
+import { addtoCart } from "../slices/CartSlice";
 import "../ProductPage.css";
 
 const ProductDetails = () => {
@@ -15,7 +15,7 @@ const ProductDetails = () => {
   /* FETCH PRODUCT */
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products`)
+      .get(`https://llh-backend.onrender.com/products`)
       .then((res) => {
         const found = res.data.find((item) => item.id === Number(id));
         setProduct(found);

@@ -2,7 +2,7 @@ import React from "react";
 import VisionMission from "../components/VisionMission";
 
 const AboutUs = () => {
-  const API = "http://localhost:5000";
+  const API = "https://llh-backend.onrender.com";
 
   // Premium Corporate Font Colors - Multi-color gradient heading kku pathila nalla high-contrast readable colors
   const primaryTextColor = { color: "#1e293b", fontWeight: "600" }; // Dark Slate / Charcoal

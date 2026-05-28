@@ -25,7 +25,7 @@ const AddNewProducts = () => {
   }, []);
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:5000/products");
+    const res = await axios.get("https://llh-backend.onrender.com/products");
     setProducts(res.data);
   };
 
@@ -50,7 +50,7 @@ const AddNewProducts = () => {
     formData.append("Description", product.Description);
     formData.append("Image", product.Image);
 
-    await axios.post("http://localhost:5000/products", formData);
+    await axios.post("https://llh-backend.onrender.com/products", formData);
 
     setProduct({
       Title: "",
@@ -87,7 +87,7 @@ const AddNewProducts = () => {
       formData.append("Image", editData.Image);
     }
 
-    await axios.put(`http://localhost:5000/products/${editData.id}`, formData);
+    await axios.put(`https://llh-backend.onrender.com/products/${editData.id}`, formData);
 
     setEditPopup(false);
     fetchProducts();
@@ -95,7 +95,7 @@ const AddNewProducts = () => {
 
   /* ================= DELETE ================= */
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:5000/products/${deleteId}`);
+    await axios.delete(`https://llh-backend.onrender.com/products/${deleteId}`);
     setDeletePopup(false);
     fetchProducts();
   };

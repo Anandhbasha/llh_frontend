@@ -19,7 +19,7 @@ import Payroll from "./pages/Payroll";
 import "./App.css"
 import DigitalSignature from "./pages/DigitalSignature";
 import ProductDetails from "./components/ProductDetails";
-import Login from "./components/Login.jsx/Login";
+import Login from "./components/Login/Login";
 import CartSidebar from "./components/CartSidebar";
 import TypingText from "./components/Typingtext";
 import CustomerDetails from "./pages/CustomerDetails";

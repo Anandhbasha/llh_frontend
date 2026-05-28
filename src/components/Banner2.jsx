@@ -1,4 +1,4 @@
-import td from "../../Backend/public/images/download.webp";
+import td from "../../src/assets/Image/download.webp";
 
 import "../Banner.css";
 

@@ -1,4 +1,4 @@
-import tax from "../../Backend/public/images/tax.webp"
+import tax from "../../src/assets/Image/tax.webp"
 import "../Banner.css"
 
 const Banner3 = () => {

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleCart } from "../Slices.js/CartSlice";
-import { setSearchTerm } from "../Slices.js/ProductSlice";
+import { toggleCart } from "../slices/CartSlice";
+import { setSearchTerm } from "../slices/ProductSlice";
 
 import {
   FaCartPlus,
@@ -14,7 +14,7 @@ import {
 
 import { useState } from "react";
 
-import lakshmi from "../../Backend/public/images/lakshmi.jpg";
+import lakshmi from "../../src/assets/Image/lakshmi.jpg";
 
 import "../Navbar.css";
 
@@ -23,19 +23,22 @@ function Navbar() {
   const dispatch = useDispatch();
 
   /* REDUX */
+
   const {
-  Products = [],
-  searchTerm = ""
-} = useSelector((state) => state.Product || {});
+    Products = [],
+    searchTerm = ""
+  } = useSelector((state) => state.Product || {});
 
   const cartItem =
-  useSelector((state) => state?.Cart?.cartItem || []);
+    useSelector((state) => state?.Cart?.cartItem || []);
 
   /* MOBILE MENU */
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   /* FILTER PRODUCTS */
-const filteredProducts = (Products || []).filter((item) =>
+
+  const filteredProducts = (Products || []).filter((item) =>
 
     item.Title
       .toLowerCase()
@@ -50,6 +53,7 @@ const filteredProducts = (Products || []).filter((item) =>
   ).slice(0, 5);
 
   /* CLOSE MENU */
+
   const closeMenu = () => {
     setMenuOpen(false);
   };
@@ -57,6 +61,17 @@ const filteredProducts = (Products || []).filter((item) =>
   return (
 
     <nav className="navbarContainer">
+
+      {/* OVERLAY */}
+
+      {
+        menuOpen && (
+          <div
+            className="overlay"
+            onClick={() => setMenuOpen(false)}
+          ></div>
+        )
+      }
 
       {/* ================= TOP NAVBAR ================= */}
 
@@ -83,71 +98,69 @@ const filteredProducts = (Products || []).filter((item) =>
 
         {/* SEARCH SECTION */}
 
-        {/* SEARCH SECTION */}
+        <div className="searchWrapper">
 
-<div className="searchWrapper">
+          <div className="searchBox">
 
-  <div className="searchBox">
+            <FaSearch className="searchIcon" />
 
-    <FaSearch className="searchIcon" />
+            <input
+              type="text"
+              placeholder="Search products..."
+              className="searchInput"
 
-    <input
-      type="text"
-      placeholder="Search products..."
-      className="searchInput"
+              value={searchTerm}
 
-      value={searchTerm}
-
-      onChange={(e)=>
-        dispatch(setSearchTerm(e.target.value))
-      }
-    />
-
-  </div>
-
-  {/* ONLY PRODUCT NAME RESULTS */}
-
-  {
-    searchTerm && (
-
-      <div className="searchResults">
-
-        {
-          filteredProducts.length > 0 ?
-
-          filteredProducts.map((item)=>(
-
-            <Link
-              key={item.id}
-
-              to={`/product/${item.id}`}
-
-              className="searchNameItem"
-
-              onClick={() =>
-                dispatch(setSearchTerm(""))
+              onChange={(e) =>
+                dispatch(setSearchTerm(e.target.value))
               }
-            >
+            />
 
-              {item.Title}
+          </div>
 
-            </Link>
+          {/* SEARCH RESULTS */}
 
-          ))
+          {
+            searchTerm && (
 
-          :
+              <div className="searchResults">
 
-          <p className="noResult">
-            No Product Found
-          </p>
-        }
+                {
+                  filteredProducts.length > 0 ?
 
-      </div>
+                    filteredProducts.map((item) => (
 
-    )
-  }
+                      <Link
+                        key={item.id}
 
-</div>
+                        to={`/product/${item.id}`}
+
+                        className="searchNameItem"
+
+                        onClick={() =>
+                          dispatch(setSearchTerm(""))
+                        }
+                      >
+
+                        {item.Title}
+
+                      </Link>
+
+                    ))
+
+                    :
+
+                    <p className="noResult">
+                      No Product Found
+                    </p>
+                }
+
+              </div>
+
+            )
+          }
+
+        </div>
 
         {/* RIGHT SECTION */}
 
@@ -170,7 +183,6 @@ const filteredProducts = (Products || []).filter((item) =>
             </span>
 
           </div>
-          
 
           {/* MOBILE MENU */}
 
@@ -239,7 +251,6 @@ const filteredProducts = (Products || []).filter((item) =>
               Professional Books
             </Link>
 
-            
           </div>
 
         </div>
@@ -333,19 +344,20 @@ const filteredProducts = (Products || []).filter((item) =>
             >
               Payroll Software
             </Link>
+
             <Link
               to="/Pdfsigner"
               onClick={closeMenu}
             >
-             PDFSigner software
+              PDFSigner software
             </Link>
+
             <Link
               to="/FixedAsset"
               onClick={closeMenu}
             >
-             FixedAsset Management
+              FixedAsset Management
             </Link>
-
 
           </div>
 

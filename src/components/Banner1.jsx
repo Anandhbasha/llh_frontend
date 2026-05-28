@@ -1,6 +1,6 @@
-import asset from "../../Backend/public/images/asset.png";
-import hrm from "../../Backend/public/images/hrm.jpg";
-import payroll from "../../Backend/public/images/payroll.jpg";
+import asset from "../../src/assets/Image/asset.png";
+import hrm from "../../src/assets/Image/hrm.jpg";
+import payroll from "../../src/assets/Image/payroll.jpg";
 
 import "../Banner.css";
 
