@@ -31,16 +31,14 @@ const Card = ({
   };
 
   // ✅ SAFE IMAGE HANDLING
-  const imageSrc = Image?.startsWith("http")
-    ? Image
-    : `https://llh-backend.onrender.com/${Image}`;
+const imageSrc = Image || "https://via.placeholder.com/150";
 
   // BOOK DISCOUNT
   const discountPrice = Math.round(Price - (Price * 15) / 100);
 
   // SOFTWARE GST
   const gstPrice = Math.round(Price + (Price * 18) / 100);
-
+  console.log(Image)
   return (
     <div className="Card" onClick={() => navigate(`/product/${id}`)}>
 

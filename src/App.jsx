@@ -40,7 +40,7 @@ function App() {
     <BrowserRouter>
      <div className='App'>
         <Navbar/>        
-        <div className="mainAppPage" style={{marginTop:"80px",background: "linear-gradient(#3e62cfc7, #770ae0)"}}>
+        <div className="mainAppPage" style={{marginTop:"80px",padding:"10px",background: "linear-gradient(#3e62cfc7, #770ae0)"}}>
           <CartSidebar/> 
           <ScrollToTop />    
         <Routes>

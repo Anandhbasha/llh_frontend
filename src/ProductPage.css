@@ -2,25 +2,37 @@
   padding: 20px;
 }
 
-/* Search result box */
+/* SEARCH RESULT BOX */
+
 .search-result-box {
   width: 320px;
   margin-left: auto;
   margin-top: 10px;
+
   background: white;
+
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
   overflow: hidden;
 }
 
-/* Each product */
+/* EACH PRODUCT */
+
 .search-item {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
   padding: 10px;
+
   border-bottom: 1px solid #eee;
+
   cursor: pointer;
+
   transition: 0.2s;
 }
 
@@ -32,270 +44,321 @@
   border-bottom: none;
 }
 
-/* Product image */
+/* PRODUCT IMAGE */
+
 .search-image {
   width: 60px;
+
   height: 60px;
+
   object-fit: cover;
-  
+
   border-radius: 8px;
 }
 
-/* No product text */
+/* NO PRODUCT */
+
 .no-product {
   padding: 15px;
+
   text-align: center;
+
   color: gray;
 }
 
+/* ===================================== */
+/* PRODUCT DETAILS PAGE */
+/* ===================================== */
 
-/* MAIN PAGE */
+.productDetailsPage {
+  width: 100%;
 
-.productDetailsPage{
+  min-height: 100vh;
 
-    width: 100%;
+  display: flex;
 
-    min-height: 100vh;
+  justify-content: center;
 
-    display: flex;
+  align-items: stretch;
 
-    justify-content: center;
-    align-items: center;
+  gap: 50px;
 
-    gap: 50px;
+  padding: 120px 50px 50px;
+}
 
-    padding: 120px 50px 50px;
-
-  }
-
+/* ===================================== */
 /* IMAGE SECTION */
+/* ===================================== */
 
-.productImageSection{
+.productImageSection {
+  flex: 1;
 
-    flex: 1;
+  display: flex;
 
-    display: flex;
+  justify-content: center;
 
-    justify-content: center;
-    align-items: center;
+  align-items: center;
 }
 
 /* PRODUCT IMAGE */
 
-.detailsImage{
+.detailsImage {
+  width: 100%;
 
-    width: 100%;
+  max-width: 420px;
 
-    max-width: 420px;
+  height: auto;
 
-    height: auto;
+  object-fit: cover;
 
-    object-fit: cover;
+  border-radius: 25px;
 
-    border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 
-    box-shadow:
-      0 15px 40px rgba(0,0,0,0.15);
-
-    transition: 0.3s;
+  transition: 0.3s;
 }
 
-.detailsImage:hover{
-
-    transform: scale(1.02);
+.detailsImage:hover {
+  transform: scale(1.02);
 }
 
+/* ===================================== */
 /* INFO SECTION */
+/* ===================================== */
 
-.productInfoSection{
+.productInfoSection {
+  flex: 1;
 
-    flex: 1;
+  display: flex;
 
-    display: flex;
+  flex-direction: column;
 
-    flex-direction: column;
-
-    gap: 18px;
+  gap: 20px;
 }
 
 /* TITLE */
 
-.detailsTitle{
+.detailsTitle {
+  font-size: 2.8rem;
 
-    font-size: 2.8rem;
+  font-weight: 700;
 
-    font-weight: 700;
+  color: white;
 
-    color: white;
-
-    line-height: 1.3;
+  line-height: 1.3;
 }
 
+/* ===================================== */
 /* PRICE */
+/* ===================================== */
 
-.detailsPrice{
-    width: fit-content;
-    background-color: white;
-    padding: 10px 20px;
-    font-size: 2rem;
-    border-radius: 15px;
-    color: rgb(234 89 12);
+.detailsPrice {
+  width: fit-content;
 
-    font-weight: bold;
+  background-color: white;
+
+  padding: 10px 20px;
+
+  font-size: 2rem;
+
+  border-radius: 15px;
+
+  color: rgb(234 89 12);
+
+  font-weight: bold;
 }
 
 /* TAX */
 
-.detailsTax{
+.detailsTax {
+  font-size: 1rem;
 
-    font-size: 1rem;
-
-    color: white;
+  color: white;
 }
 
-/* DESCRIPTION BOX */
+/* ===================================== */
+/* DESCRIPTION */
+/* ===================================== */
 
-.descriptionBox{
+.descriptionBox {
+  background: white;
 
-    background: white;
+  padding: 25px;
 
-    padding: 25px;
+  border-radius: 20px;
 
-    border-radius: 20px;
-
-    box-shadow:
-      0 8px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-.descriptionBox h3{
+.descriptionBox h3 {
+  font-size: 1.4rem;
 
-    font-size: 1.4rem;
+  color: #0f172a;
 
-    color: #0f172a;
-
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
-.descriptionBox p{
+.descriptionBox p {
+  font-size: 1rem;
 
-    font-size: 1rem;
+  line-height: 1.9;
 
-    line-height: 1.9;
-
-    color: #475569;
+  color: #475569;
 }
 
+/* ===================================== */
+/* FULL DESCRIPTION */
+/* ===================================== */
+
+.fullDescriptionBox {
+  width: 90%;
+
+  margin: 20px auto 50px;
+
+  padding: 30px;
+
+  background: #111;
+
+  color: white;
+
+  border-radius: 20px;
+
+  line-height: 2;
+
+  font-size: 17px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fullDescriptionBox h2 {
+  margin-bottom: 20px;
+
+  color: orange;
+
+  font-size: 2rem;
+}
+
+.fullDescriptionBox p {
+  color: #e2e8f0;
+}
+
+/* ===================================== */
 /* BUTTON */
+/* ===================================== */
 
-.detailsBtn{
+.detailsBtn {
+  width: 240px;
 
-    width: 240px;
+  border: none;
 
-    border: none;
+  padding: 15px;
 
-    padding: 15px;
+  border-radius: 50px;
 
-    border-radius: 50px;
+  background: rgb(234 89 12);
 
-    background: rgb(234 89 12);
+  color: white;
 
-    color: white;
+  font-size: 1rem;
 
-    font-size: 1rem;
+  font-weight: 600;
 
-    font-weight: 600;
+  cursor: pointer;
 
-    cursor: pointer;
+  transition: 0.3s;
 
-    transition: 0.3s;
+  margin-top: auto;
 }
 
-.detailsBtn:hover{
+.detailsBtn:hover {
+  background: rgb(194 65 12);
 
-    background: rgb(194 65 12);
+  transform: translateY(-3px);
 
-    transform: translateY(-3px);
-
-    box-shadow:
-      0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* ===================================== */
 /* NOT FOUND */
+/* ===================================== */
 
-.notFound{
+.notFound {
+  text-align: center;
+
+  margin-top: 150px;
+
+  color: #ef4444;
+}
+
+/* ===================================== */
+/* TABLET */
+/* ===================================== */
+
+@media screen and (max-width: 992px) {
+  .productDetailsPage {
+    flex-direction: column;
+
+    padding: 120px 25px 40px;
+  }
+
+  .detailsTitle {
+    font-size: 2.1rem;
 
     text-align: center;
+  }
 
-    margin-top: 150px;
+  .detailsPrice,
+  .detailsTax {
+    text-align: center;
+  }
 
-    color: #ef4444;
+  .detailsBtn {
+    width: 100%;
+  }
+
+  .fullDescriptionBox {
+    width: 100%;
+  }
 }
 
-/* TABLET */
-
-@media screen and (max-width:992px){
-
-    .productDetailsPage{
-
-        flex-direction: column;
-
-        padding: 120px 25px 40px;
-    }
-
-    .detailsTitle{
-
-        font-size: 2.1rem;
-
-        text-align: center;
-    }
-
-    .detailsPrice,
-    .detailsTax{
-
-        text-align: center;
-    }
-
-    .detailsBtn{
-
-        width: 100%;
-    }
-
-}
-
+/* ===================================== */
 /* MOBILE */
+/* ===================================== */
 
-@media screen and (max-width:600px){
+@media screen and (max-width: 600px) {
+  .productDetailsPage {
+    gap: 30px;
 
-    .productDetailsPage{
+    padding: 110px 15px 30px;
+  }
 
-        gap: 30px;
+  .detailsImage {
+    max-width: 100%;
+  }
 
-        padding: 110px 15px 30px;
-    }
+  .detailsTitle {
+    font-size: 1.6rem;
+  }
 
-    .detailsImage{
+  .detailsPrice {
+    font-size: 1.4rem;
+  }
 
-        max-width: 100%;
-    }
+  .descriptionBox {
+    padding: 18px;
+  }
 
-    .detailsTitle{
+  .descriptionBox p {
+    font-size: 0.95rem;
+  }
 
-        font-size: 1.6rem;
-    }
+  .fullDescriptionBox {
+    padding: 20px;
 
-    .detailsPrice{
+    font-size: 15px;
+  }
 
-        font-size: 1.4rem;
-    }
-
-    .descriptionBox{
-
-        padding: 18px;
-    }
-
-    .descriptionBox p{
-
-        font-size: 0.95rem;
-    }
-
+  .fullDescriptionBox h2 {
+    font-size: 1.5rem;
+  }
 }

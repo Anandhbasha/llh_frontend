@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { toggleCart } from "../slices/CartSlice";
 import { setSearchTerm } from "../slices/ProductSlice";
 
@@ -9,209 +7,164 @@ import {
   FaCartPlus,
   FaSearch,
   FaBars,
-  FaTimes
+  FaTimes,
 } from "react-icons/fa";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 import lakshmi from "../../src/assets/Image/lakshmi.jpg";
-
 import "../Navbar.css";
 
 function Navbar() {
-
   const dispatch = useDispatch();
 
   /* REDUX */
+  const searchTerm = useSelector(
+    (state) => state?.Product?.searchTerm || ""
+  );
 
-  const {
-    Products = [],
-    searchTerm = ""
-  } = useSelector((state) => state.Product || {});
+  const cartItem = useSelector(
+    (state) => state?.Cart?.cartItem || []
+  );
 
-  const cartItem =
-    useSelector((state) => state?.Cart?.cartItem || []);
+  /* LOCAL PRODUCTS (API) */
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://llh-backend.onrender.com/products")
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log(products);
 
   /* MOBILE MENU */
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   /* FILTER PRODUCTS */
-
-  const filteredProducts = (Products || []).filter((item) =>
-
-    item.Title
+const filteredProducts = (products || [])
+  .filter((item) => {
+    const title = String(item?.Title || "")
       .toLowerCase()
-      .includes(searchTerm.toLowerCase())
+      .trim();
 
-    ||
-
-    item.Category
+    const category = String(item?.Category || "")
       .toLowerCase()
-      .includes(searchTerm.toLowerCase())
+      .trim();
 
-  ).slice(0, 5);
+    const search = String(searchTerm || "")
+      .toLowerCase()
+      .trim();
 
-  /* CLOSE MENU */
+    return (
+      title.includes(search) ||
+      category.includes(search)
+    );
+  })
+  .slice(0, 20);
 
   const closeMenu = () => {
     setMenuOpen(false);
   };
 
   return (
-
     <nav className="navbarContainer">
-
       {/* OVERLAY */}
+      {menuOpen && (
+        <div
+          className="overlay"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
 
-      {
-        menuOpen && (
-          <div
-            className="overlay"
-            onClick={() => setMenuOpen(false)}
-          ></div>
-        )
-      }
-
-      {/* ================= TOP NAVBAR ================= */}
-
+      {/* TOP NAVBAR */}
       <div className="topNavbar">
-
-        {/* LOGO SECTION */}
-
+        {/* LOGO */}
         <div className="logoSection">
-
           <img
             src={lakshmi}
             alt="Lakshmi Law House"
             className="logoImage"
           />
-
           <a
             href="http://www.lakshmilawhouse.com/"
             className="logoText"
           >
             Lakshmi Law House
           </a>
-
         </div>
 
-        {/* SEARCH SECTION */}
-
+        {/* SEARCH */}
         <div className="searchWrapper">
-
           <div className="searchBox">
-
             <FaSearch className="searchIcon" />
 
             <input
               type="text"
               placeholder="Search products..."
               className="searchInput"
-
               value={searchTerm}
-
               onChange={(e) =>
                 dispatch(setSearchTerm(e.target.value))
               }
             />
-
           </div>
 
           {/* SEARCH RESULTS */}
-
-          {
-            searchTerm && (
-
-              <div className="searchResults">
-
-                {
-                  filteredProducts.length > 0 ?
-
-                    filteredProducts.map((item) => (
-
-                      <Link
-                        key={item.id}
-
-                        to={`/product/${item.id}`}
-
-                        className="searchNameItem"
-
-                        onClick={() =>
-                          dispatch(setSearchTerm(""))
-                        }
-                      >
-
-                        {item.Title}
-
-                      </Link>
-
-                    ))
-
-                    :
-
-                    <p className="noResult">
-                      No Product Found
-                    </p>
-                }
-
-              </div>
-
-            )
-          }
-
+          {searchTerm?.trim() && (
+            <div className="searchResults">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((item) => (
+                  <Link
+                    key={item.id}
+                    to={`/product/${item.id}`}
+                    className="searchNameItem"
+                    onClick={() =>
+                      dispatch(setSearchTerm(""))
+                    }
+                  >
+                    {item.Title}
+                  </Link>
+                ))
+              ) : (
+                <p className="noResult">
+                  No Product Found
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         {/* RIGHT SECTION */}
-
         <div className="rightSection">
-
           {/* CART */}
-
           <div
             className="cartSection"
-
-            onClick={() =>
-              dispatch(toggleCart())
-            }
+            onClick={() => dispatch(toggleCart())}
           >
-
             <FaCartPlus className="cartIcon" />
-
             <span className="cartCount">
               {cartItem.length}
             </span>
-
           </div>
 
-          {/* MOBILE MENU */}
-
+          {/* MENU BUTTON */}
           <button
             className="menuButton"
-
-            onClick={() =>
-              setMenuOpen(!menuOpen)
-            }
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-
-            {
-              menuOpen ?
-
-                <FaTimes />
-
-                :
-
-                <FaBars />
-            }
-
+            {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
-
         </div>
-
       </div>
 
-      {/* ================= BOTTOM NAVBAR ================= */}
-
+      {/* BOTTOM NAVBAR */}
       <div
         className={
           menuOpen
@@ -219,181 +172,89 @@ function Navbar() {
             : "bottomNavbar"
         }
       >
-
-        {/* HOME */}
-
-        <Link
-          to="/"
-          onClick={closeMenu}
-        >
+        <Link to="/" onClick={closeMenu}>
           Home
         </Link>
 
-        {/* BOOKSTORE */}
-
         <div className="dropdown">
-
           <span>Bookstore</span>
-
           <div className="dropdownContent">
-
-            <Link
-              to="/AcademicBooks"
-              onClick={closeMenu}
-            >
+            <Link to="/AcademicBooks" onClick={closeMenu}>
               Academic Books
             </Link>
-
             <Link
               to="/ProfessionalBooks"
               onClick={closeMenu}
             >
               Professional Books
             </Link>
-
           </div>
-
         </div>
 
-        {/* PRODUCTS */}
-
         <div className="dropdown">
-
           <span>Our Products</span>
-
           <div className="dropdownContent">
-
-            <Link
-              to="/Commonseal"
-              onClick={closeMenu}
-            >
+            <Link to="/Commonseal" onClick={closeMenu}>
               Common Seal
             </Link>
-
-            <Link
-              to="/Minutessheet"
-              onClick={closeMenu}
-            >
+            <Link to="/Minutessheet" onClick={closeMenu}>
               Minutes Sheets
             </Link>
-
-            <Link
-              to="/Minutesbook"
-              onClick={closeMenu}
-            >
+            <Link to="/Minutesbook" onClick={closeMenu}>
               Minutes Book
             </Link>
-
-            <Link
-              to="/Minutesbinder"
-              onClick={closeMenu}
-            >
+            <Link to="/Minutesbinder" onClick={closeMenu}>
               Minutes Binder
             </Link>
-
-            <Link
-              to="/Share"
-              onClick={closeMenu}
-            >
+            <Link to="/Share" onClick={closeMenu}>
               Share Certificate
             </Link>
-
-            <Link
-              to="/Combined"
-              onClick={closeMenu}
-            >
+            <Link to="/Combined" onClick={closeMenu}>
               Statutory Register
             </Link>
-
           </div>
-
         </div>
-
-        {/* SOFTWARE */}
 
         <div className="dropdown">
-
           <span>Software</span>
-
           <div className="dropdownContent">
-
-            <Link
-              to="/Etds"
-              onClick={closeMenu}
-            >
+            <Link to="/Etds" onClick={closeMenu}>
               ETDS Software
             </Link>
-
-            <Link
-              to="/Xbrl"
-              onClick={closeMenu}
-            >
+            <Link to="/Xbrl" onClick={closeMenu}>
               XBRL Software
             </Link>
-
-            <Link
-              to="/Gst"
-              onClick={closeMenu}
-            >
+            <Link to="/Gst" onClick={closeMenu}>
               GST Software
             </Link>
-
-            <Link
-              to="/Payroll"
-              onClick={closeMenu}
-            >
+            <Link to="/Payroll" onClick={closeMenu}>
               Payroll Software
             </Link>
-
-            <Link
-              to="/Pdfsigner"
-              onClick={closeMenu}
-            >
-              PDFSigner software
+            <Link to="/Pdfsigner" onClick={closeMenu}>
+              PDFSigner Software
             </Link>
-
-            <Link
-              to="/FixedAsset"
-              onClick={closeMenu}
-            >
+            <Link to="/FixedAsset" onClick={closeMenu}>
               FixedAsset Management
             </Link>
-
           </div>
-
         </div>
 
-        {/* DIGITAL SIGNATURE */}
-
-        <Link
-          to="/DigitalSignature"
-          onClick={closeMenu}
-        >
+        <Link to="/DigitalSignature" onClick={closeMenu}>
           Digital Signature
         </Link>
 
-        {/* ABOUT */}
-
-        <Link
-          to="/AboutUs"
-          onClick={closeMenu}
-        >
+        <Link to="/AboutUs" onClick={closeMenu}>
           About Us
         </Link>
-
-        {/* LOGIN */}
 
         <Link
           to="/Login"
           className="loginBtn"
-
           onClick={closeMenu}
         >
           Login
         </Link>
-
       </div>
-
     </nav>
   );
 }

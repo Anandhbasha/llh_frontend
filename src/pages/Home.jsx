@@ -9,7 +9,7 @@ import "../App.css";
 import ScrollTopButton from "../components/ScrollTopButton";
 import Ours from "../components/Ours";
 import axios from "axios";
-import video from "../assets/Videos/tdsman.mp4"
+import video from "../assets/Videos/tdsman.mp4";
 import TypeText from "../components/TypeText";
 
 const Home = () => {
@@ -34,22 +34,21 @@ const Home = () => {
   console.log("VIDEO URL:", products[0]?.Video);
   const navigate = useNavigate();
 
- 
   useEffect(() => {
-  if (!products.length) return;
+    if (!products.length) return;
 
-  const interval = setInterval(() => {
-    setVisibleCount((prev) => {
-      if (prev >= 12) {
-        clearInterval(interval);
-        return prev;
-      }
-      return prev + 2;
-    });
-  }, 1000);
+    const interval = setInterval(() => {
+      setVisibleCount((prev) => {
+        if (prev >= 12) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 2;
+      });
+    }, 1000);
 
-  return () => clearInterval(interval);
-}, [products.length]);
+    return () => clearInterval(interval);
+  }, [products.length]);
 
   return (
     <div className="homePage">
@@ -108,6 +107,8 @@ const Home = () => {
         <div>
           <TypeText />
         </div>
+
+        <Ours />
       </div>
     </div>
   );
