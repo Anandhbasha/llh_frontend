@@ -21,7 +21,6 @@ import DigitalSignature from "./pages/DigitalSignature";
 import ProductDetails from "./components/ProductDetails";
 import Login from "./components/Login/Login";
 import CartSidebar from "./components/CartSidebar";
-import TypingText from "./components/Typingtext";
 import CustomerDetails from "./pages/CustomerDetails";
 import { useState } from "react";
 import ScrollToTop from "./ScrollToTop";

@@ -28,5 +28,5 @@ const newauthSlice = createSlice({
   }
 })
 
-export const { login, logout } = authSlice.actions
+export const { login, logout } = newauthSlice.actions
 export default newauthSlice
