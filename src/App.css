@@ -623,3 +623,43 @@ body{
 td,th,tr{
   padding: 15px;
 }
+
+
+@media screen and (max-width:450px) {
+  .mainAppPage{
+    margin-top: 165px !important;
+  }
+  
+}
+
+.sliderWrapper {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.card {
+  min-width: 250px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #d05929;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

@@ -7,10 +7,10 @@ import Bounce from "../components/Bounce";
 
 import "../App.css";
 import ScrollTopButton from "../components/ScrollTopButton";
-import TypingText from "../components/TypingText";
 import Ours from "../components/Ours";
 import axios from "axios";
 import video from "../assets/Videos/tdsman.mp4"
+import TypeText from "../components/TypeText";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -106,12 +106,8 @@ const Home = () => {
       </div>
       <div>
         <div>
-          <TypingText />
+          <TypeText />
         </div>
-
-        <Ours />
-
-        <ScrollTopButton />
       </div>
     </div>
   );
